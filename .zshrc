@@ -1,6 +1,23 @@
 # ~/.zshrc
 autoload -U colors && colors
 
+# WM detection function
+# Only detects dwm and hyprland for now
+detect_wm() {
+	local wm=""
+	if [ "$XDG_SESSION_TYPE" = "wayland" ]; then
+		if pgrep -x "hyprland" >/dev/null; then
+            wm="hyprland"
+        fi
+	elif [ -n "$DISPLAY" ]; then
+		if pgrep -x "dwm" >/dev/null; then
+			wm="dwm"
+		fi
+	fi
+
+	echo "$wm"
+}
+
 # Prompt with git status
 source ~/git/zsh-git-prompt/zshrc.sh
 PS1=' < %B%F{43}󰣇 %f%b %B%F{193}%n%f%b %B@%b %B%F{43}%m%f%b %B%F{11}%~%f%b $(git rev-parse --is-inside-work-tree &>/dev/null && echo "$(git_super_status)") > '
@@ -27,18 +44,12 @@ source /usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zs
 alias exsub='/home/lolo/script/auto_extract_subtitles.sh'
 alias ls='ls --color=auto'
 alias grep='grep --color=auto'
-alias randbg='/home/lolo/script/randbg.sh'
-alias startvpn='/home/lolo/script/startvpn'
-alias stopvpn='/home/lolo/script/stopvpn'
 alias sb-nettraf='/home/lolo/script/sb-nettraf.sh'
 alias st_style='/home/lolo/script/st.sh'
-alias start='/home/lolo/script/start_server.sh'
-alias died='/home/lolo/script/shutdown_server.sh'
-alias ncmpcpp='/home/lolo/.config/ncmpcpp/ncmpcpp-ueberzug/ncmpcpp-ueberzug'
 alias vim='nvim'
-alias ID3toRIFF='~/script/ID3toRIFF.sh'
 
-# export
+########## Environment variables ##########
+export WM=$(detect_wm)
 export _JAVA_AWT_WM_NONREPARENTING=1
 
 # Android
