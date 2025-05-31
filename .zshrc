@@ -19,7 +19,7 @@ detect_wm() {
 }
 
 # Prompt with git status
-source ~/git/zsh-git-prompt/zshrc.sh
+source /usr/lib/zsh-git-prompt/zshrc.sh
 PS1=' < %B%F{43}󰣇 %f%b %B%F{193}%n%f%b %B@%b %B%F{43}%m%f%b %B%F{11}%~%f%b $(git rev-parse --is-inside-work-tree &>/dev/null && echo "$(git_super_status)") > '
 
 # History
