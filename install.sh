@@ -3,6 +3,7 @@ mkdir -p ~/.config
 mkdir -p ~/.config/nvim
 mkdir -p ~/.config/fcitx5
 mkdir -p ~/.config/hypr
+mkdir -p ~/.config/waybar
 
 stow --adopt .
 git restore .
