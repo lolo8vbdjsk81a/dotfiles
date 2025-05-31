@@ -16,5 +16,5 @@ if [ "${WM}" != "dwm" ] && [ -f ~/.xinitrc ]; then
 fi
 
 if [ "${WM}" != "hyprland" ] && [ -d ~/.config/hypr ]; then
-    unlink ~/.config/hypr
+    rm -r ~/.config/hypr
 fi
