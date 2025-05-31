@@ -1,17 +1,12 @@
-#!/bin/bash
+#!/bin/zsh
 mkdir -p ~/.config
 
-# First
-ln -s ~/.dotfiles/.zshrc ~/.zshrc
-ln -s ~/.dotfiles/.bashrc ~/.bashrc
+stow --adopt .
 
-# Source zshrc to get $WM variable
+# Source zshrc to get environment variables
 source ~/.zshrc
 
 # $WM is defined in .zshrc
-if [ "${WM}" = "dwm" ]; then
-	ln -s ~/.dotfiles/.xinitrc ~/.xinitrc
+if [ "${WM}" != "dwm" ] && [ -f ~/.xinitrc ]; then
+	unlink ~/.xinitrc
 fi
-
-ln -s ~/.dotfiles/.gitconfig ~/.gitconfig
-ln -s ~/.dotfiles/.config/nvim ~/.config
