@@ -6,8 +6,8 @@ autoload -U colors && colors
 detect_wm() {
 	local wm=""
 	if [ "$XDG_SESSION_TYPE" = "wayland" ]; then
-		if pgrep -x "hyprland" >/dev/null; then
-            wm="hyprland"
+		if pgrep -x "Hyprland" >/dev/null; then
+            wm="Hyprland"
         fi
 	elif [ -n "$DISPLAY" ]; then
 		if pgrep -x "dwm" >/dev/null; then
