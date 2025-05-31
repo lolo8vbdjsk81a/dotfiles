@@ -20,22 +20,22 @@ return require('packer').startup(function(use)
 		-- install jsregexp (optional!:).
 		run = "make install_jsregexp"
 	})
+	use { 'hrsh7th/nvim-cmp' }
+	use { 'hrsh7th/cmp-nvim-lsp' }
 	use { "ellisonleao/gruvbox.nvim" }
 	use { "catppuccin/nvim", as = "catppuccin" }
-	use { 'nvim-treesitter/nvim-treesitter', run = ':TSUpdate' }
+	use {
+        'nvim-treesitter/nvim-treesitter',
+        run = function()
+            local ts_update = require('nvim-treesitter.install').update({ with_sync = true })
+            ts_update()
+        end,
+    }
 	use { 'VonHeikemen/lsp-zero.nvim', branch = 'v4.x' }
 	use { 'neovim/nvim-lspconfig' }
-	use {
-		'hrsh7th/nvim-cmp',
-		require('cmp').setup({
-			sources = {
-				{ name = 'buffer' },
-			},
-		})
-	}
-	use { 'hrsh7th/cmp-nvim-lsp' }
+
 	use { "williamboman/mason.nvim" }
 	use { "williamboman/mason-lspconfig.nvim" }
-	use {'mfussenegger/nvim-jdtls' }
+	use { 'mfussenegger/nvim-jdtls' }
 end)
 
