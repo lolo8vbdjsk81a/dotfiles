@@ -5,13 +5,13 @@
     "spacing": 0,
     "height": 0,
 
-    "margin-top": 8,
-    "margin-right": 8,
+    "margin-top": 0,
+    "margin-right": 0,
     "margin-bottom": 0,
-    "margin-left": 8,
+    "margin-left": 0,
 
     "modules-left": [
-        "sway/workspaces"
+        "hyprland/workspaces"
     ],
 
     "modules-center": [
@@ -28,9 +28,15 @@
         "pulseaudio"
     ],
 
-    "sway/workspaces": {
+    "hyprland/workspaces": {
         "disable-scroll": true,
         "all-outputs": true,
+        "tooltip": false,
+		"sort-by-number": true,
+    },
+
+    "clock": {
+        "format": "{:%I:%M %p - %a, %d %b %Y}",
         "tooltip": false
     },
 
@@ -39,22 +45,23 @@
         "tooltip": false
     },
 
-    "clock": {
-        "format": "{:%I:%M %p - %a, %d %b %Y}",
-        "tooltip": false
-    },
-
-    "cpu": {
-        "format": "cpu {usage}%",
-        "interval": 2,
-
-        "states": {
-            "critical": 90
-        }
-    },
+	"cpu": {
+	    "interval": 1,
+	    "format": "{icon0}{icon1}{icon2}{icon3}{icon4}{icon5}{icon6}{icon7}{icon8}{icon9}{icon10}{icon11}",
+	    "format-icons": [
+	        "<span color='#69ff94'>▁</span>",
+	        "<span color='#2aa9ff'>▂</span>",
+	        "<span color='#f8f8f2'>▃</span>",
+	        "<span color='#f8f8f2'>▄</span>",
+	        "<span color='#ffffa5'>▅</span>",
+	        "<span color='#ffffa5'>▆</span>",
+	        "<span color='#ff9977'>▇</span>",
+	        "<span color='#dd532e'>█</span>"
+	    ]
+	},
 
     "memory": {
-        "format": "mem {percentage}%",
+        "format": "\uefc5 {used:0.1f}G/{total:0.1f}G",
         "interval": 2,
 
         "states": {
@@ -63,19 +70,20 @@
     },
 
     "battery": {
-        "format": "bat {capacity}%",
+		"format-icons": ["\uf244", "\uf243", "\uf241", "\uf240", "\uf240"],
+        "format": "{icon} {capacity}%",
         "interval": 5,
         "states": {
-            "warning": 20,
-            "critical": 10
+            "warning": 30,
+            "critical": 15
         },
         "tooltip": false
     },
 
     "network": {
-        "format-wifi" : "wifi {bandwidthDownBits}",
-        "format-ethernet": "enth {bandwidthDownBits}",
-        "format-disconnected" : "no network",
+		"format-wifi": "{essid} ({signalStrength}%) {bandwidthDownBytes} ",
+        "format-ethernet": "\uef44 {bandwidthDownBytes}",
+        "format-disconnected" : "\udb82\ude8e",
         "interval": 5,
         "tooltip": false
     },
@@ -83,8 +91,12 @@
     "pulseaudio": {
         "scroll-step": 5,
         "max-volume": 150,
-        "format": "vol {volume}%",
-        "format-bluetooth": "vol {volume}%",
+		"format-icons": {
+    	    "default": ["\uf026", "\uf027", "\uf028"]
+    	},
+        "format": "{icon} {volume}%",
+		"format-muted": "\ueee8 Muted",
+        "format-bluetooth": "\udb80\udcaf {volume}%",
         "nospacing": 1,
         "on-click": "pavucontrol",
         "tooltip": false

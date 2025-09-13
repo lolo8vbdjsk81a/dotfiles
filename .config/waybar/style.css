@@ -4,15 +4,14 @@
     border: none;
     border-radius: 0;
     min-height: 0;
-    font-family: "iosevka nerd font";
+    font-family: "Noto Sans Mono";
     font-weight: 500;
-    font-size: 14px;
+    font-size: 12px;
     padding: 0;
 }
 
 window#waybar {
     background: #1d2021;
-    border: 2px solid #3c3836;
 }
 
 tooltip {
@@ -29,12 +28,14 @@ tooltip {
 #pulseaudio {
     margin: 6px 6px 6px 0px;
     padding: 2px 8px;
+    border-radius: 20;
 }
 
 #workspaces {
     background-color: #303536;
     margin: 6px 0px 6px 6px;
     border: 2px solid #434a4c;
+    border-radius: 20;
 }
 
 #workspaces button {
