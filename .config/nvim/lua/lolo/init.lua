@@ -11,6 +11,7 @@ vim.opt.shiftwidth = 4
 vim.g.mapleader = ","
 vim.cmd.colorscheme("catppuccin")
 vim.api.nvim_set_keymap("i", "<C-J>", 'copilot#Accept("<CR>")', {silent = true, expr = true})
+vim.opt.relativenumber = true
 
 -- Set indentation for HTML and CSS files
 vim.api.nvim_create_autocmd("FileType", {
