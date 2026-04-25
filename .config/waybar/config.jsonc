@@ -1,4 +1,4 @@
-// https://github.com/mubin6th/MinimalSway/tree/main
+// Base: https://github.com/mubin6th/MinimalSway/tree/main
 
 {
     "layer": "top",
@@ -10,23 +10,24 @@
     "margin-bottom": 0,
     "margin-left": 0,
 
-    "modules-left": [
-        "hyprland/workspaces"
-    ],
-
-    "modules-center": [
-        "clock"
-    ],
-
-    "modules-right": [
-        "tray",
-        "cpu_text",
-        "cpu",
-        "memory",
-        "battery",
-        "network",
-        "pulseaudio"
-    ],
+	"modules-left": [
+	    "hyprland/workspaces",
+	    "hyprland/window",
+	],
+	
+	"modules-center": [
+	    "clock"
+	],
+	
+	"modules-right": [
+	    "mpd",
+	    "tray",
+		"cpu",
+	    "memory",
+	    "battery",
+	    "network",
+	    "pulseaudio"
+	],
 
     "hyprland/workspaces": {
         "disable-scroll": true,
@@ -34,6 +35,12 @@
         "tooltip": false,
 		"sort-by-number": true,
     },
+
+	"hyprland/window": {
+    "format": "{}",
+    "max-length": 50,
+    "separate-outputs": true,
+	},
 
     "clock": {
         "format": "{:%I:%M %p - %a, %d %b %Y}",
@@ -100,5 +107,22 @@
         "nospacing": 1,
         "on-click": "pavucontrol",
         "tooltip": false
-    }
+    },
+
+	"tailscale": {
+	    "exec": "tailscale status --json | jq -r '.BackendState'",
+	    "interval": 5,
+	    "format": "{}",
+	    "format-icons": {
+	        "Running": "",
+	        "Stopped": ""
+	    }
+	},
+
+	"mpd": {
+	    "format": "{stateIcon} {artist} - {title}",
+	    "max-length": 40,  /* Truncate in the config, not CSS */
+	    "tooltip": true,
+	    "tooltip-format": "{artist} - {album} - {title}"
+	}
 }

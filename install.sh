@@ -11,7 +11,7 @@ git restore .
 # Source zshrc to get environment variables
 source ~/.zshrc
 
-# $WM is defined in .zshrc
+# $WM is defined in .zshrc; $WM only has two values
 if [ "${WM}" != "dwm" ] && [ -f ~/.xinitrc ]; then
 	unlink ~/.xinitrc
 fi
