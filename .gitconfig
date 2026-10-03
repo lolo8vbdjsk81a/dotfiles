@@ -3,3 +3,9 @@
 	name = Lo Ming Hin
 [core]
 	editor = nvim
+[alias]
+	d = diff
+	a = add
+	c = commit
+	st = status
+	lg = log --oneline --graph --decorate --all
