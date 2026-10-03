@@ -3,6 +3,3 @@
 	name = Lo Ming Hin
 [core]
 	editor = nvim
-[safe]
-	directory = /mnt/ext/obsidian
-	directory = /mnt/ext/obsidian/Lolo
