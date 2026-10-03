@@ -5,7 +5,7 @@ mkdir -p ~/.config/fcitx5
 mkdir -p ~/.config/hypr
 mkdir -p ~/.config/waybar
 
-stow --adopt .
+stow --adopt --target="$HOME" .
 git restore .
 
 # Source zshrc to get environment variables

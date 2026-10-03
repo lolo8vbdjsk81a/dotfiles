@@ -3,7 +3,7 @@
 {
     "layer": "top",
     "spacing": 0,
-    "height": 0,
+    "height": 34,
 
     "margin-top": 0,
     "margin-right": 0,
@@ -124,5 +124,7 @@
 	    "max-length": 40,  /* Truncate in the config, not CSS */
 	    "tooltip": true,
 	    "tooltip-format": "{artist} - {album} - {title}"
+		"on-click": "kitty rmpc",
+		"on-click-right": "mpc toggle"
 	}
 }
