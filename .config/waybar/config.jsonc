@@ -123,7 +123,7 @@
 	    "format": "{stateIcon} {artist} - {title}",
 	    "max-length": 40,  /* Truncate in the config, not CSS */
 	    "tooltip": true,
-	    "tooltip-format": "{artist} - {album} - {title}"
+	    "tooltip-format": "{artist} - {album} - {title}",
 		"on-click": "kitty rmpc",
 		"on-click-right": "mpc toggle"
 	}
